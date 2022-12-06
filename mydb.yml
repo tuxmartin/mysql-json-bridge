@@ -1,0 +1,8 @@
+---
+identifier: 'mydb'
+scheme: 'mysql'
+username: 'mydb'
+password: 'mydb'
+database: 'mydb'
+hostname: '192.168.1.5'
+enabled: 'True'

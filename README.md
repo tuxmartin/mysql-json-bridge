@@ -1,3 +1,30 @@
+
+# DOCKER
+
+Create config with `yaml` **(`a` is important!)**:
+`mydb.yaml`:
+```yaml
+---
+identifier: 'mydb'
+scheme: 'mysql'
+username: 'mydb'
+password: 'mydb'
+database: 'mydb'
+hostname: '192.168.1.5'
+enabled: 'True'
+```
+
+Run docker image:
+```bash
+docker run --name mysql-json-bridge --rm -v $PWD/mydb.yml:/usr/src/app/conf.d/mydb.yaml:ro -p 5000:5000 tuxmartin/mysql-json-bridge:2022-12-06
+```
+
+Build:
+```bash
+DOCKER_BUILDKIT=1 BUILDKIT_PROGRESS=plain time docker build . -t tuxmartin/mysql-json-bridge:2022-12-06
+```
+
+
 mysql-json-bridge
 =================
 Talk to MySQL using HTTP POST and get result sets via JSON.
@@ -16,7 +43,7 @@ Install a few prerequisites:
 
     pip install flask pyyaml
     # requests is optional, but you need it to use the quick test file
-    pip install requests 
+    pip install requests
 
 Get the source:
 
